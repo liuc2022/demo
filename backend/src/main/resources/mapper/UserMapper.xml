@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cmb.cmbchina.demo.infrastructure.persistence.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="cmb.cmbchina.demo.infrastructure.persistence.po.UserPO">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="email" column="email"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="UserResultMap">
+        select id, username, email, status
+        from t_user
+        order by id asc
+    </select>
+
+    <select id="findByUsername" resultMap="UserResultMap">
+        select id, username, email, status
+        from t_user
+        where username = #{username}
+        limit 1
+    </select>
+
+    <insert id="insert" parameterType="cmb.cmbchina.demo.infrastructure.persistence.po.UserPO"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into t_user (username, email, status)
+        values (#{username}, #{email}, #{status})
+    </insert>
+</mapper>

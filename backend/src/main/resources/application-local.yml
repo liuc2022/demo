@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:cmb_demo}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: cmb.cmbchina.demo.infrastructure.persistence.po
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Node
+frontend/node_modules
+frontend/dist
+
+# Java
+backend/target
+*.log
+
+# Local runtime
+.logs
+.m2
+.tmp
+.env.local
+
+# IDE
+.idea
+.vscode
+*.iml
